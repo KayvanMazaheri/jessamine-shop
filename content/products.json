@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "name": "Product name",
+      "gallery": [
+        "path/to/image-one",
+        "/path/to/image-two"
+      ],
+      "attributes": [
+        {
+          "key": "key-name",
+          "value": "value-value"
+        }
+      ],
+      "description": "text",
+      "price": 1000,
+      "purchaseOptions": [
+        {
+          "icon": "path/to/icon",
+          "link": "https://purchace.link"
+        }
+      ]
+    }
+  ]
+}
