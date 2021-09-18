@@ -5,13 +5,9 @@ on:
     branches:
       - main
       - master
-  pull_request:
-    branches:
-      - main
-      - master
 
 jobs:
-  ci:
+  CI:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -43,3 +39,19 @@ jobs:
       - name: Run linter 👀
         run: npm run lint
 
+      - name: Build the project
+        run: npm run build
+
+      - name: Generate Static Website
+        run: npm run generate
+
+      - name: Publish on Github Pages
+        working-directory: ./dist
+        shell: bash
+        run: |
+          git config --global user.email "kayvanmazaheri@gmail.com"
+          git config --global user.name "Kayvan Mazaheri"
+          git init
+          git add -A
+          git commit -m 'Publish On Github Pages'
+          git push -f https://${{ inputs.username }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ GITHUB_REPOSITORY }}.git master:gh-pages
