@@ -54,4 +54,4 @@ jobs:
           git init
           git add -A
           git commit -m 'Publish On Github Pages'
-          git push -f https://kayvanmazaheri:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPOSITORY }}.git master:gh-pages
+          git push -f https://kayvanmazaheri:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git master:gh-pages
